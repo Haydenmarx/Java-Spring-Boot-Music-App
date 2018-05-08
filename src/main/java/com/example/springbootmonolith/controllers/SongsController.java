@@ -16,8 +16,8 @@ public class SongsController {
   @Autowired
   private SongRepository songRepository;
 
-//  @GetMapping
-//  public List<Song> findAllSongs() { return new ArrayList<Song>(); }
+  @GetMapping("/songs/")
+  public List<Song> findAllSongs() { return new ArrayList<Song>(); }
 
   @GetMapping("/songs/{songId}")
   public Optional<Song> findSongById(@PathVariable Long songId) {return  songRepository.findById(songId); }
