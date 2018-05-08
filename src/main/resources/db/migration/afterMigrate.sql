@@ -1,5 +1,5 @@
 INSERT INTO USERS
-        (USER_NAME, FIST_NAME, LAST_NAME)
+        (USER_NAME, FIRST_NAME, LAST_NAME)
 VALUES
         ('user from seeds', 'Ima', 'User'),
         ('another user', 'Ura', 'User'),
