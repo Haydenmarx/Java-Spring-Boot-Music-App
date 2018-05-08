@@ -13,10 +13,10 @@ public class Song {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @Column(name = "SONG_TITLE")
+  @Column(name = "TITLE")
   private String songTitle;
 
-  @Column(name = "SONG_LENGTH")
+  @Column(name = "LENGTH")
   private Double songLength;
 
 }
