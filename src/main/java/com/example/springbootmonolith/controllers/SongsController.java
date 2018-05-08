@@ -41,7 +41,7 @@ public class SongsController {
     Song songFromDb = songRepository.findById(songId).get();
 
     songFromDb.setSongTitle(songRequest.getSongTitle());
-    songFromDb.setSongength(songRequest.getSongLength());
+    songFromDb.setSongLength(songRequest.getSongLength());
 
     return songRepository.save(songFromDb);
   }
