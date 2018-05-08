@@ -43,7 +43,7 @@ public class SongsController {
     songFromDb.setSongTitle(songRequest.getSongTitle());
     songFromDb.setSongength(songRequest.getSongLength());
 
-    return songRepository.save(userFromDb);
+    return songRepository.save(songFromDb);
   }
 
 }
