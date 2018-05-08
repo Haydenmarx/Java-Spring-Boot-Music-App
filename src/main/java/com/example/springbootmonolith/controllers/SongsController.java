@@ -24,7 +24,7 @@ public class SongsController {
   @GetMapping("/songs/{songId}")
   public Optional<Song> findSongById(@PathVariable Long songId) {return  songRepository.findById(songId); }
 
-  @DeleteMapping("/users/{songId}")
+  @DeleteMapping("/songs/{songId}")
   public HttpStatus deleteSongById(@PathVariable Long songId) {
     songRepository.deleteById(songId);
     return HttpStatus.OK;
