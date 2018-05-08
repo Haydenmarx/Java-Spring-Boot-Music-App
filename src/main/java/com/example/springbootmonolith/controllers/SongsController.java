@@ -1,47 +1,47 @@
 package com.example.springbootmonolith.controllers;
 
-import com.example.springbootmonolith.models.User;
-import com.example.springbootmonolith.repositories.UserRepository;
+import com.example.springbootmonolith.models.Song;
+import com.example.springbootmonolith.repositories.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class SongsController {
 
   @Autowired
-  private UserRepository songRepository;
+  private SongRepository songRepository;
 
   @GetMapping
   public List<Song> findAllSongs() {
     return new ArrayList<Song>();
   }
 
-  @GetMapping("/users/{userId}")
-  public Optional<Song> findUserById(@PathVariable Long userId) {
-    return songRepository.findById(userId);
-  }
+  @GetMapping("/songs/{songId}")
+  public Optional<Song> findSongById(@PathVariable Long songId) {return  songRepository.findById(songId); }
 
-  @DeleteMapping("/users/{userId}")
-  public HttpStatus deleteUserById(@PathVariable Long userId) {
-    songRepository.deleteById(userId);
+  @DeleteMapping("/users/{songId}")
+  public HttpStatus deleteSongById(@PathVariable Long songId) {
+    songRepository.deleteById(songId);
     return HttpStatus.OK;
   }
 
-  @PostMapping("/users")
-  public Song createNewUser(@RequestBody User newUser) {
-    return songRepository.save(newUser);
+  @PostMapping("/songs")
+  public Song createNewSong(@RequestBody Song newSong) {
+    return songRepository.save(newSong);
   }
 
-  @PatchMapping("/users/{userId}")
-  public Song updateUserById(@PathVariable Long userId, @RequestBody User userRequest) {
+  @PatchMapping("/songs/{songId}")
+  public Song updateSongById(@PathVariable Long songId, @RequestBody Song songRequest) {
 
-    Song userFromDb = userRepository.findById(userId).get();
+    Song songFromDb = songRepository.findById(songId).get();
 
-    songFromDb.setUserName(userRequest.getUserName());
-    songFromDb.setFirstName(userRequest.getFirstName());
-    songFromDb.setLastName(userRequest.getLastName());
+    songFromDb.setSongTitle(songRequest.getSongTitle());
+    songFromDb.setSongength(songRequest.getSongLength());
 
     return songRepository.save(userFromDb);
   }
